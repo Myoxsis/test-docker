@@ -1,0 +1,21 @@
+version: "3"
+services:
+  monapp:
+    image: monapptest
+    depends_on:
+      - redis
+    ports:
+      - "80:80"
+    networks:
+      - monreseau
+    environment:
+      - NOM=PPR
+  redis:
+    image : redis
+    ports : 
+      - "6379:6379"
+    networks : 
+      - monreseau
+
+networks:
+  monreseau:
